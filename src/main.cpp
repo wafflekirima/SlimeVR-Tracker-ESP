@@ -33,6 +33,7 @@
 #include "ota.h"
 #include "serial/serialcommands.h"
 #include "status/TPSCounter.h"
+#include "tftdisplay/tftmanager.h"
 
 Timer<> globalTimer;
 SlimeVR::Logging::Logger logger("SlimeVR");
@@ -44,6 +45,7 @@ SlimeVR::Network::Manager networkManager;
 SlimeVR::Network::Connection networkConnection;
 SlimeVR::WiFiNetwork wifiNetwork;
 SlimeVR::WifiProvisioning wifiProvisioning;
+SlimeVR::TFTManager tftManager;
 
 #if DEBUG_MEASURE_SENSOR_TIME_TAKEN
 SlimeVR::Debugging::TimeTakenMeasurer sensorMeasurer{"Sensors"};
@@ -67,6 +69,11 @@ void setup() {
 	Serial.println();
 
 	logger.info("SlimeVR v" FIRMWARE_VERSION " starting up...");
+
+	//tftManager.setup();
+	//tftManager.setupState(true);
+	pinMode(PIN_IMU_INT, INPUT_PULLUP);
+	pinMode(PIN_IMU_INT_2, INPUT_PULLUP);
 
 	char vendorBuffer[512];
 	size_t writtenLength;
@@ -138,6 +145,8 @@ void setup() {
 	// Wait for IMU to boot
 	delay(500);
 	sensorManager.setup();
+	tftManager.setup();
+	tftManager.setupState(true);
 
 	networkManager.setup();
 	OTA::otaSetup(otaPassword);
@@ -149,6 +158,7 @@ void setup() {
 
 	loopTime = micros();
 	tpsCounter.reset();
+	tftManager.setupState(false);
 }
 
 void loop() {
@@ -169,6 +179,8 @@ void loop() {
 	battery.Loop();
 	ledManager.update();
 	I2CSCAN::update();
+
+	tftManager.update();
 #ifdef TARGET_LOOPTIME_MICROS
 	long elapsed = (micros() - loopTime);
 	if (elapsed < TARGET_LOOPTIME_MICROS) {
