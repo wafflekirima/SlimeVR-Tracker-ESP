@@ -30,13 +30,13 @@
 #define IMU IMU_AUTO
 #endif
 #ifndef SECOND_IMU
-#define SECOND_IMU IMU_AUTO
+#define SECOND_IMU IMU
 #endif
 #ifndef BOARD
 #define BOARD BOARD_SLIMEVR_V1_2
 #endif
 #ifndef IMU_ROTATION
-#define IMU_ROTATION DEG_270
+#define IMU_ROTATION DEG_180
 #endif
 #ifndef SECOND_IMU_ROTATION
 #define SECOND_IMU_ROTATION DEG_270
@@ -53,6 +53,8 @@
 // If not set, default address is used based on the IMU and Sensor ID
 // #define PRIMARY_IMU_ADDRESS_ONE 0x4a
 // #define SECONDARY_IMU_ADDRESS_TWO 0x4b
+//#define PRIMARY_IMU_ADDRESS_ONE 0x69
+//#define SECONDARY_IMU_ADDRESS_TWO 0x70
 
 #ifndef BATTERY_MONITOR
 // Battery monitoring options (comment to disable):
