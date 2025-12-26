@@ -70,10 +70,8 @@ void setup() {
 
 	logger.info("SlimeVR v" FIRMWARE_VERSION " starting up...");
 
-	//tftManager.setup();
-	//tftManager.setupState(true);
-	pinMode(PIN_IMU_INT, INPUT_PULLUP);
-	pinMode(PIN_IMU_INT_2, INPUT_PULLUP);
+	tftManager.setup();
+	tftManager.setupState(true);
 
 	char vendorBuffer[512];
 	size_t writtenLength;
@@ -145,8 +143,6 @@ void setup() {
 	// Wait for IMU to boot
 	delay(500);
 	sensorManager.setup();
-	tftManager.setup();
-	tftManager.setupState(true);
 
 	networkManager.setup();
 	OTA::otaSetup(otaPassword);

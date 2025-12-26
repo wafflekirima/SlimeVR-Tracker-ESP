@@ -39,7 +39,7 @@
 #define SMOOTH_FONT
 
 //#define SPI_FREQUENCY  27000000
-#define SPI_FREQUENCY  20000000
+#define SPI_FREQUENCY  27000000
 
 
-#define SPI_READ_FREQUENCY  3500000 // 6 MHz is the maximum SPI read speed for the ST7789V
+#define SPI_READ_FREQUENCY  6000000 // 6 MHz is the maximum SPI read speed for the ST7789V

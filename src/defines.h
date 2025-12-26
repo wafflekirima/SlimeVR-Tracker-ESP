@@ -27,34 +27,75 @@
 
 // Set parameters of IMU and board used
 #ifndef IMU
-#define IMU IMU_AUTO
+#define IMU IMU_ICM45686
 #endif
 #ifndef SECOND_IMU
-#define SECOND_IMU IMU
+#define SECOND_IMU IMU_ICM45686
 #endif
 #ifndef BOARD
-#define BOARD BOARD_SLIMEVR_V1_2
+#define BOARD BOARD_TTGO_TDISPLAY
 #endif
 #ifndef IMU_ROTATION
-#define IMU_ROTATION DEG_180
+#define IMU_ROTATION DEG_270
 #endif
 #ifndef SECOND_IMU_ROTATION
 #define SECOND_IMU_ROTATION DEG_270
 #endif
 
 #ifndef PRIMARY_IMU_OPTIONAL
-#define PRIMARY_IMU_OPTIONAL false
+#define PRIMARY_IMU_OPTIONAL true
 #endif
 #ifndef SECONDARY_IMU_OPTIONAL
-#define SECONDARY_IMU_OPTIONAL true
+#define SECONDARY_IMU_OPTIONAL false
 #endif
 
 // Set I2C address here or directly in IMU_DESC_ENTRY for each IMU used
 // If not set, default address is used based on the IMU and Sensor ID
 // #define PRIMARY_IMU_ADDRESS_ONE 0x4a
 // #define SECONDARY_IMU_ADDRESS_TWO 0x4b
-//#define PRIMARY_IMU_ADDRESS_ONE 0x69
-//#define SECONDARY_IMU_ADDRESS_TWO 0x70
+
+#define PIN_IMU_INT 33 //32
+#define PIN_IMU_INT_2 32 //33
+
+#define MAX_IMU_COUNT 2
+//#define PRIMARY_IMU_ADDRESS_ONE 0x68
+//#define SECONDARY_IMU_ADDRESS_TWO 0x69
+
+//-DSENSOR_DESC_LIST='SENSOR_DESC_ENTRY(IMU_ICM45686,PRIMARY_IMU_ADDRESS_ONE,DEG_270,DIRECT_WIRE(22, 21),false,DIRECT_PIN(32),0) SENSOR_DESC_ENTRY(IMU_ICM45686,SECONDARY_IMU_ADDRESS_TWO,DEG_270,DIRECT_WIRE(22, 21),true,DIRECT_PIN(33),0)'
+#if MAX_IMU_COUNT == 1
+#define SENSOR_DESC_LIST						\
+	SENSOR_DESC_ENTRY(                         \
+		IMU,                                   \
+		PRIMARY_IMU_ADDRESS_ONE,               \
+		IMU_ROTATION,                          \
+		DIRECT_WIRE(PIN_IMU_SCL, PIN_IMU_SDA), \
+		PRIMARY_IMU_OPTIONAL,                  \
+		DIRECT_PIN(PIN_IMU_INT),               \
+		0                                      \
+	)
+#elif MAX_IMU_COUNT == 2
+#define SENSOR_DESC_LIST						\
+	SENSOR_DESC_ENTRY(                         \
+		IMU,                                   \
+		PRIMARY_IMU_ADDRESS_ONE,               \
+		IMU_ROTATION,                          \
+		DIRECT_WIRE(PIN_IMU_SCL, PIN_IMU_SDA), \
+		PRIMARY_IMU_OPTIONAL,                  \
+		DIRECT_PIN(PIN_IMU_INT),               \
+		0                                      \
+	)                                          \
+	SENSOR_DESC_ENTRY(                         \
+		SECOND_IMU,                            \
+		SECONDARY_IMU_ADDRESS_TWO,             \
+		SECOND_IMU_ROTATION,                   \
+		DIRECT_WIRE(PIN_IMU_SCL, PIN_IMU_SDA), \
+		SECONDARY_IMU_OPTIONAL,                \
+		DIRECT_PIN(PIN_IMU_INT_2),             \
+		0                                      \
+	)
+	//DIRECT_WIRE(27, 26),
+	//DIRECT_WIRE(PIN_IMU_SCL, PIN_IMU_SDA)
+#endif
 
 #ifndef BATTERY_MONITOR
 // Battery monitoring options (comment to disable):
