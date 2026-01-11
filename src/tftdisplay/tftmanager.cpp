@@ -28,7 +28,7 @@ void TFTManager::setup() {
     #ifndef useTFTDisplay
         return;
     #endif
-    tft.init();
+    tft.begin();
     tftLog.info("TFT initial PIN CS %d , SCLK %d, MOSI %d, MISO %d , RST %d", TFT_CS, TFT_SCLK, TFT_MOSI, TFT_MISO, TFT_RST);
     tft.setRotation(1);
     displayW = tft.width(); displayH = tft.height();

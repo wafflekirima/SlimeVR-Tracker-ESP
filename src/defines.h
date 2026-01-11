@@ -43,10 +43,10 @@
 #endif
 
 #ifndef PRIMARY_IMU_OPTIONAL
-#define PRIMARY_IMU_OPTIONAL true
+#define PRIMARY_IMU_OPTIONAL false
 #endif
 #ifndef SECONDARY_IMU_OPTIONAL
-#define SECONDARY_IMU_OPTIONAL false
+#define SECONDARY_IMU_OPTIONAL true
 #endif
 
 // Set I2C address here or directly in IMU_DESC_ENTRY for each IMU used
@@ -54,8 +54,8 @@
 // #define PRIMARY_IMU_ADDRESS_ONE 0x4a
 // #define SECONDARY_IMU_ADDRESS_TWO 0x4b
 
-#define PIN_IMU_INT 33 //32
-#define PIN_IMU_INT_2 32 //33
+#define PIN_IMU_INT 32 //32
+#define PIN_IMU_INT_2 33 //33
 
 #define MAX_IMU_COUNT 2
 //#define PRIMARY_IMU_ADDRESS_ONE 0x68
