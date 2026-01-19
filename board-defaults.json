@@ -624,6 +624,45 @@
 				"needManualReboot": false,
 				"shouldOnlyUseDefaults": false
 			}
+		},
+		"BOARD_ESP32C6_SUPERMINI": {
+			"values": {
+				"SENSORS": [
+					{
+						"protocol": "I2C",
+						"imu": "IMU_ICM45686",
+						"int": "3",
+						"rotation": "DEG_270",
+						"scl": "18",
+						"sda": "15"
+					},
+					{
+						"protocol": "I2C",
+						"imu": "IMU_ICM45686",
+						"int": "13",
+						"rotation": "DEG_270",
+						"scl": "18",
+						"sda": "15"
+					}
+				],
+				"BATTERY": {
+					"type": "BAT_EXTERNAL",
+					"r1": 100,
+					"r2": 220,
+					"shieldR": 180,
+					"pin": "3"
+				},
+				"LED": {
+					"LED_PIN": "LED_BUILTIN",
+					"LED_INVERTED": false
+				}
+			},
+			"flashingRules": {
+				"applicationOffset": 65536,
+				"needBootPress": false,
+				"needManualReboot": false,
+				"shouldOnlyUseDefaults": false
+			}
 		}
 	}
 }
