@@ -592,7 +592,7 @@
 					{
 						"protocol": "I2C",
 						"imu": "IMU_ICM45686",
-						"int": "33",
+						"int": "32",
 						"rotation": "DEG_270",
 						"scl": "22",
 						"sda": "21"
@@ -600,7 +600,7 @@
 					{
 						"protocol": "I2C",
 						"imu": "IMU_ICM45686",
-						"int": "32",
+						"int": "33",
 						"rotation": "DEG_270",
 						"scl": "22",
 						"sda": "21"
