@@ -64,16 +64,16 @@
 
 // --- OVERRIDES FOR DEFAULT PINS
 
-#define PIN_IMU_SDA 10
-#define PIN_IMU_SCL 7
-#define PIN_IMU_INT 4
-#define PIN_IMU_INT_2 2
-// #define PIN_BATTERY_LEVEL 17
+#define PIN_IMU_SDA 5
+#define PIN_IMU_SCL 4
+#define PIN_IMU_INT 6
+#define PIN_IMU_INT_2 7
+#define PIN_BATTERY_LEVEL 1
 #define LED_PIN 48
 // #define LED_INVERTED true
-// #define BATTERY_SHIELD_RESISTANCE 0
-// #define BATTERY_SHIELD_R1 10
-// #define BATTERY_SHIELD_R2 40.2
+#define BATTERY_SHIELD_RESISTANCE 180
+#define BATTERY_SHIELD_R1 900
+#define BATTERY_SHIELD_R2 900
 #define SENSOR_DESC_LIST                        \
     SENSOR_DESC_ENTRY(                         \
         IMU,                                   \
