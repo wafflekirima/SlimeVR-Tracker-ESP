@@ -647,10 +647,10 @@
 				],
 				"BATTERY": {
 					"type": "BAT_EXTERNAL",
-					"r1": 100,
+					"r1": 1,
 					"r2": 220,
-					"shieldR": 180,
-					"pin": "3"
+					"shieldR": 0,
+					"pin": "1"
 				},
 				"LED": {
 					"LED_PIN": "LED_BUILTIN",
