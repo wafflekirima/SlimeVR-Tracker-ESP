@@ -71,9 +71,9 @@
 #define PIN_BATTERY_LEVEL 1
 #define LED_PIN 48
 // #define LED_INVERTED true
-#define BATTERY_SHIELD_RESISTANCE 180
-#define BATTERY_SHIELD_R1 900
-#define BATTERY_SHIELD_R2 900
+#define BATTERY_SHIELD_RESISTANCE 0
+#define BATTERY_SHIELD_R1 100
+#define BATTERY_SHIELD_R2 44
 #define SENSOR_DESC_LIST                        \
     SENSOR_DESC_ENTRY(                         \
         IMU,                                   \
