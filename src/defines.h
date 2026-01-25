@@ -73,7 +73,7 @@
 // #define LED_INVERTED true
 #define BATTERY_SHIELD_RESISTANCE 0
 #define BATTERY_SHIELD_R1 100
-#define BATTERY_SHIELD_R2 44
+#define BATTERY_SHIELD_R2 100
 #define SENSOR_DESC_LIST                        \
     SENSOR_DESC_ENTRY(                         \
         IMU,                                   \
