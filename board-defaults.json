@@ -639,7 +639,7 @@
 					{
 						"protocol": "I2C",
 						"imu": "IMU_ICM45686",
-						"int": "13",
+						"int": "14",
 						"rotation": "DEG_270",
 						"scl": "18",
 						"sda": "15"
