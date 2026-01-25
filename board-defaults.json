@@ -647,8 +647,8 @@
 				],
 				"BATTERY": {
 					"type": "BAT_EXTERNAL",
-					"r1": 1,
-					"r2": 220,
+					"r1": 100,
+					"r2": 100,
 					"shieldR": 0,
 					"pin": "1"
 				},
